@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.huawei.podcast.ui.main.viewmodel.EpisodeDetailsViewModel" />
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/include"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/include_episode_details"
+        app:layout_constraintTop_toTopOf="parent"
+        bind:viewModel="@{viewModel}"/>
+    <ImageView
+        android:layout_width="@dimen/hundred"
+        android:layout_height="@dimen/hundred"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/img_pod_cast"
+        android:layout_marginTop="@dimen/twenty"
+        android:src="@drawable/dummy"
+        android:scaleType="fitXY"
+        android:layout_marginStart="@dimen/twenty"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_title"
+        app:layout_constraintStart_toEndOf="@+id/img_pod_cast"
+        android:layout_marginTop="@dimen/thirty"
+        android:text="22 OCT 15 MB"
+        android:layout_marginStart="@dimen/twenty"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        style="@style/normal_black_text"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_episode"
+        app:layout_constraintStart_toEndOf="@+id/img_pod_cast"
+        android:layout_marginTop="@dimen/ten"
+        android:text="find full text"
+        android:layout_marginStart="@dimen/twenty"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title"
+        style="@style/bold_text"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_duration_date"
+        app:layout_constraintStart_toEndOf="@+id/img_pod_cast"
+        android:layout_marginTop="@dimen/ten"
+        android:text="00:24"
+        android:layout_marginStart="@dimen/twenty"
+        app:layout_constraintTop_toBottomOf="@+id/txt_episode"
+        style="@style/normal_black_text"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/const_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/twenty"
+        app:layout_constraintTop_toBottomOf="@+id/img_pod_cast"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_stream"
+        android:text="@string/stream"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:drawableStart="@drawable/ic_stream"
+        android:drawablePadding="@dimen/ten"
+        android:onClick="@{viewModel::onClick}"
+        style="@style/normal_black_text"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_download"
+        android:text="@string/download"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/fifty"
+        app:layout_constraintStart_toEndOf="@+id/txt_stream"
+        android:drawableStart="@drawable/ic_download_black"
+        android:onClick="@{viewModel::onDownloadClick}"
+        android:drawablePadding="@dimen/ten"
+        style="@style/normal_black_text"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/v1"
+        android:layout_marginTop="@dimen/twenty"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/const_1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/twenty"
+        android:layout_marginStart="@dimen/twenty"
+        android:background="@color/colorBlack"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_details"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="@dimen/twenty"
+        android:text="Prime Minister Narendra Modi on Friday addressed the High-Level Segment of the UN Economic and Social Council session of the United Nations, "
+        android:layout_marginStart="@dimen/twenty"
+        android:layout_marginEnd="@dimen/twenty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v1"
+        style="@style/normal_black_text"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

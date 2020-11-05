@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:layout_width="@dimen/hundred"
+        android:layout_height="@dimen/hundred"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/img_pod_cast"
+        android:layout_marginTop="@dimen/ten"
+        android:src="@drawable/dummy"
+        android:scaleType="fitXY"
+        android:layout_marginStart="@dimen/twenty"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_title"
+        app:layout_constraintStart_toEndOf="@+id/img_pod_cast"
+        app:layout_constraintEnd_toStartOf="@+id/img_download"
+        android:layout_marginTop="@dimen/thirty"
+        android:text="@string/str_add_pod_cast"
+        android:layout_marginStart="@dimen/twenty"
+        app:layout_constraintTop_toTopOf="parent"
+        style="@style/normal_black_text"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_duration"
+        app:layout_constraintStart_toEndOf="@+id/img_pod_cast"
+        android:layout_marginTop="@dimen/ten"
+        android:text="@string/str_add_pod_cast"
+        android:layout_marginStart="@dimen/twenty"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title"
+        style="@style/normal_black_text"/>
+
+    <View
+        android:layout_marginTop="@dimen/twenty"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/img_pod_cast"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/twenty"
+        android:layout_marginStart="@dimen/twenty"
+        android:background="@color/colorPrimary"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

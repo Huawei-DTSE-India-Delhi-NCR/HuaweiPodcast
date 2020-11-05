@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.huawei.podcast.ui.main.viewmodel.DetailsViewModel" />
+
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/img_pod_cast"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/two_hundred"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/dummy"
+        android:scaleType="fitXY"/>
+    <ImageView
+        android:id="@+id/img_back_arrow"
+        android:layout_width="@dimen/thirty"
+        android:layout_height="@dimen/thirty"
+        android:layout_margin="10dp"
+        android:minHeight="?attr/actionBarSize"
+        android:src="@drawable/ic_white_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/img_share"
+        android:layout_width="@dimen/thirty"
+        android:layout_height="@dimen/thirty"
+        android:layout_margin="10dp"
+        android:minHeight="?attr/actionBarSize"
+        android:src="@drawable/ic_white_share"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txt_subscribe"
+        app:layout_constraintTop_toBottomOf="@+id/img_pod_cast"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/subscribe"
+        style="@style/bold_white_text"
+        android:paddingStart="@dimen/fifty"
+        android:paddingEnd="@dimen/fifty"
+        android:paddingTop="@dimen/ten"
+        android:paddingBottom="@dimen/ten"
+        android:layout_marginTop="@dimen/ten"
+        android:background="@drawable/rounded_rectangle_solid"/>
+    <TextView
+        android:id="@+id/txt_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/txt_subscribe"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="@dimen/twenty"
+        style="@style/normal_black_text"
+        android:text="Prime Minister Narendra Modi on Friday addressed the High-Level Segment of the UN Economic and Social Council session of the United Nations, "/>
+     <TextView
+         android:id="@+id/txt_episode"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         app:layout_constraintTop_toBottomOf="@+id/txt_description"
+         app:layout_constraintStart_toStartOf="parent"
+         android:layout_margin="@dimen/twenty"
+         style="@style/bold_text"
+         android:text="@string/episode"/>
+    <View
+        android:id="@+id/v1"
+        android:layout_marginTop="@dimen/twenty"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/txt_episode"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="@dimen/twenty"
+        android:layout_marginStart="@dimen/twenty"
+        android:background="@color/colorPrimary"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_episodes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/v1"
+        android:visibility="@{viewModel.showError == null ? View.VISIBLE : View.GONE}"
+        android:layout_margin="@dimen/ten"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

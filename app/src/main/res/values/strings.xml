@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">PodCast</string>
+    <string name="BASE_URL"></string>
+    <string name="no_network_connectivity">No Network Connectivity</string>
+    <string name="interest">Choose Your Interest</string>
+    <string name="trending">Trending</string>
+    <string name="category">Category</string>
+    <string name="str_interest">Interest</string>
+    <string name="str_downloads">Downloads</string>
+    <string name="str_subs">Subscriptions</string>
+    <string name="str_play_back">Playback History</string>
+    <string name="str_fav">Favorites</string>
+    <string name="str_add_pod_cast">Add PodCast</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="search">Search</string>
+    <string name="episode">Episodes</string>
+    <string name="subscribe">Subscribe</string>
+    <string name="next_episode">Next Episode</string>
+    <string name="add_fav">Add to your favorites</string>
+    <string name="share">Share</string>
+    <string name="stream">Stream</string>
+    <string name="download">Download</string>
+    <string name="download_mp3">Download MP3</string>
+    <string name="openFolder">Open Downloaded Folder</string>
+    <string name="downloadStarted">Download Started…</string>
+    <string name="downloadCompleted">Download Completed…</string>
+    <string name="downloadFailed">Download Failed…</string>
+    <string name="downloadAgain">Download Again</string>
+    
+</resources>
