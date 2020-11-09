@@ -5,19 +5,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.huawei.podcast.data.model.PodCastList
-import com.huawei.podcast.data.repository.MainRepository
+import com.huawei.podcast.data.model.EpisodeModel
+import com.huawei.podcast.data.repository.EpisodeRepository
 import com.huawei.podcast.utils.NetworkHelper
 import com.huawei.podcast.utils.Resource
 import com.huawei.podcast.utils.SingleLiveEvent
 import kotlinx.coroutines.launch
 
 
-class DetailsViewModel(private val mainRepository: MainRepository, private val networkHelper: NetworkHelper) : ViewModel() {
+class DetailsViewModel(private val episodeRepository: EpisodeRepository, private val networkHelper: NetworkHelper) : ViewModel() {
 
     val showError = SingleLiveEvent<String>()
-    private val _list = MutableLiveData<Resource<List<PodCastList>>>()
-    val pList: LiveData<Resource<List<PodCastList>>>
+    private val _list = MutableLiveData<Resource<EpisodeModel>>()
+    val pList: LiveData<Resource<EpisodeModel>>
         get() = _list
 
     init {
@@ -28,7 +28,7 @@ class DetailsViewModel(private val mainRepository: MainRepository, private val n
         viewModelScope.launch {
             _list.postValue(Resource.loading(null))
             if (networkHelper.isNetworkConnected()) {
-                mainRepository.getPodCastList().let {
+                episodeRepository.getEpisode().let {
                     if (it.isSuccessful) {
                         showError.value = null
                         _list.postValue(Resource.success(it.body()))

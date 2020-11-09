@@ -6,14 +6,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.huawei.podcast.R
-import com.huawei.podcast.data.model.PodCastList
+import com.huawei.podcast.data.model.CategoryCollection
 import com.huawei.podcast.databinding.ItemChooseInterestBinding
-import com.huawei.podcast.utils.ClickListener
+import com.huawei.podcast.utils.ChooseInterestClickListener
 
+class ChooseInterestAdapter(val clickListener: ChooseInterestClickListener) : RecyclerView.Adapter<ChooseInterestAdapter.ChooseInterestViewHolder>() {
 
-class ChooseInterestAdapter(val clickListener: ClickListener) : RecyclerView.Adapter<ChooseInterestAdapter.ChooseInterestViewHolder>() {
-
-    var pList: List<PodCastList> = ArrayList()
+    var pList: List<CategoryCollection> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ChooseInterestViewHolder {
         val viewBinding: ItemChooseInterestBinding = DataBindingUtil.inflate(
@@ -44,7 +43,7 @@ class ChooseInterestAdapter(val clickListener: ClickListener) : RecyclerView.Ada
         }
     }
 
-    fun setList(podCastList: List<PodCastList>) {
+    fun setList(podCastList: List<CategoryCollection>) {
         this.pList = podCastList
         notifyDataSetChanged()
     }

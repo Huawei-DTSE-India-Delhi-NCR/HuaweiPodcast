@@ -4,18 +4,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.huawei.podcast.data.model.PodCastList
-import com.huawei.podcast.data.repository.MainRepository
+import com.huawei.podcast.data.model.CategoryModel
+import com.huawei.podcast.data.repository.CategoryRepository
 import com.huawei.podcast.utils.NetworkHelper
 import com.huawei.podcast.utils.Resource
 import com.huawei.podcast.utils.SingleLiveEvent
 import kotlinx.coroutines.launch
 
-class HomeViewModel(private val mainRepository: MainRepository, private val networkHelper: NetworkHelper) : ViewModel() {
+class HomeViewModel(private val catRepository: CategoryRepository, private val networkHelper: NetworkHelper) : ViewModel() {
 
     val showError = SingleLiveEvent<String>()
-    private val _list = MutableLiveData<Resource<List<PodCastList>>>()
-    val pList: LiveData<Resource<List<PodCastList>>>
+    private val _list = MutableLiveData<Resource<CategoryModel>>()
+    val pList: LiveData<Resource<CategoryModel>>
         get() = _list
 
     init {
@@ -26,7 +26,7 @@ class HomeViewModel(private val mainRepository: MainRepository, private val netw
         viewModelScope.launch {
             _list.postValue(Resource.loading(null))
             if (networkHelper.isNetworkConnected()) {
-                mainRepository.getPodCastList().let {
+                catRepository.getPodCastCategoryList().let {
                     if (it.isSuccessful) {
                         showError.value = null
                         _list.postValue(Resource.success(it.body()))
@@ -36,6 +36,8 @@ class HomeViewModel(private val mainRepository: MainRepository, private val netw
                     }
                 }
             } else _list.postValue(Resource.error("No internet connection", null))
+
+
         }
     }
 

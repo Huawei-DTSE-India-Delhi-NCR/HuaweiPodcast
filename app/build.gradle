@@ -9,7 +9,9 @@ plugins {
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
-
+    androidExtensions {
+        experimental = true
+    }
     defaultConfig {
         applicationId "com.huawei.podcast"
         minSdkVersion 23
@@ -18,7 +20,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        buildConfigField 'String', 'BASE_URL', "\"https://5e510330f2c0d300147c034c.mockapi.io/\""
+        buildConfigField 'String', 'BASE_URL', "\"https://api.simplecast.com/\""
     }
 
     dataBinding {
@@ -56,7 +58,7 @@ dependencies {
     implementation "org.koin:koin-android:2.1.6"
 
     // Networking
-    implementation "com.squareup.retrofit2:converter-moshi:2.6.2"
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
     implementation "com.squareup.retrofit2:retrofit:2.8.1"
     implementation "com.squareup.okhttp3:okhttp:4.7.2"
     implementation "com.squareup.okhttp3:logging-interceptor:4.7.2"

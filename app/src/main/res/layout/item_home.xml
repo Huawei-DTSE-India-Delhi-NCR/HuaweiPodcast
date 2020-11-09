@@ -7,10 +7,13 @@
 
         <variable
             name="pList"
-            type="com.huawei.podcast.data.model.PodCastList" />
+            type="com.huawei.podcast.data.model.CategoryCollection" />
         <variable
             name="clickInterface"
-            type="com.huawei.podcast.utils.ClickListener" />
+            type="com.huawei.podcast.utils.CategoryClickListener" />
+        <variable
+            name="position"
+            type="int" />
 
     </data>
 
@@ -22,7 +25,7 @@
         android:layout_marginTop="@dimen/five"
         android:layout_marginBottom="@dimen/five"
         card_view:cardElevation="3dp"
-        android:onClick="@{() -> clickInterface.onItemClick(pList)}"
+        android:onClick="@{() -> clickInterface.onItemCategoryClick(pList,position)}"
         app:cardBackgroundColor="@color/colorPrimary"
         card_view:layout_constraintTop_toTopOf="parent">
 
@@ -40,7 +43,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:text="@{pList.name}"/>
+                android:text="@{pList.label}"/>
 
 
 

@@ -7,16 +7,16 @@
 
         <variable
             name="pList"
-            type="com.huawei.podcast.data.model.CategoryCollection" />
+            type="com.huawei.podcast.data.model.SubCategoryCollection" />
         <variable
             name="clickInterface"
-            type="com.huawei.podcast.utils.ChooseInterestClickListener" />
+            type="com.huawei.podcast.utils.CategoryClickListener" />
 
 
     </data>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="@dimen/hundred"
         android:layout_marginStart="@dimen/five"
         android:layout_marginEnd="@dimen/five"

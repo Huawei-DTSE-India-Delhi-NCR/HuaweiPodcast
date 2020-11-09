@@ -13,23 +13,26 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.huawei.podcast.data.model.PodCastList
+import com.huawei.podcast.data.model.CategoryCollection
+import com.huawei.podcast.data.model.CategoryModel
+import com.huawei.podcast.data.model.SubCategoryCollection
 import com.huawei.podcast.databinding.FragmentHomeBinding
+import com.huawei.podcast.ui.main.adapter.CategoryAdapter
 import com.huawei.podcast.ui.main.adapter.HomeAdapter
 import com.huawei.podcast.ui.main.viewmodel.HomeViewModel
-import com.huawei.podcast.utils.ClickListener
-import com.huawei.podcast.utils.ProgressDialog
-import com.huawei.podcast.utils.Status
+import com.huawei.podcast.utils.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
-class HomeFragment : Fragment() , ClickListener {
+class HomeFragment : Fragment() , CategoryClickListener {
 
     private val homeViewModel: HomeViewModel by viewModel()
     private lateinit var adapter: HomeAdapter
+    private lateinit var cAdapter: CategoryAdapter
     lateinit var dialog: Dialog
     lateinit var fragmentHomeBindingImpl: FragmentHomeBinding
+    private lateinit var cList: CategoryModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fragmentHomeBindingImpl = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
@@ -53,15 +56,23 @@ class HomeFragment : Fragment() , ClickListener {
         adapter = HomeAdapter(this)
         view.rv_trending.adapter = adapter
         /*category*/
-        val catMLayoutManager = LinearLayoutManager(this.requireActivity())
-        catMLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
-        view.rv_category.layoutManager = catMLayoutManager
+        view.rv_category.layoutManager =
+            LinearLayoutManager(this.requireActivity()).also {
+                view.rv_category.layoutManager = it
+                it.orientation = LinearLayoutManager.HORIZONTAL
+            }
         view.rv_category.adapter = adapter
+        /*sub category*/
+        view.rv_sub_category.layoutManager =
+            LinearLayoutManager(this.requireActivity()).also {
+                view.rv_sub_category.layoutManager = it
+                it.orientation = LinearLayoutManager.HORIZONTAL
+            }
+
+        cAdapter = CategoryAdapter(this)
+        view.rv_sub_category.adapter = cAdapter
         /*interest*/
-        val intMLayoutManager = LinearLayoutManager(this.requireActivity())
-        intMLayoutManager.orientation = LinearLayoutManager.HORIZONTAL
-        view.rv_your_interest.layoutManager = intMLayoutManager
-        view.rv_your_interest.adapter = adapter
+
 
     }
 
@@ -70,7 +81,7 @@ class HomeFragment : Fragment() , ClickListener {
             when (it.status) {
                 Status.SUCCESS -> {
                     dialog.dismiss()
-                    it.data?.let { users -> renderList(users) }
+                    it.data?.let { cList -> renderList(cList) }
                 }
                 Status.LOADING -> {
                     dialog.show()
@@ -84,12 +95,21 @@ class HomeFragment : Fragment() , ClickListener {
         })
     }
 
-    private fun renderList(pList: List<PodCastList>) {
-        adapter.setList(pList)
+    private fun renderList(pList: CategoryModel) {
+        cList = pList
+        pList.collection?.let { adapter.setList(it) }
+        pList.collection?.get(0)?.subcategories?.collection?.let { cAdapter.setList(it) }
         adapter.notifyDataSetChanged()
+        cAdapter.notifyDataSetChanged()
     }
 
-    override fun onItemClick(country: PodCastList) {
+    override fun onItemCategoryClick(category: CategoryCollection,position : Int) {
+        cList.collection?.get(position)?.subcategories?.collection?.let { cAdapter.setList(it) }
+        cAdapter.notifyDataSetChanged()
+    }
+
+
+    override fun onItemClick(category: SubCategoryCollection) {
         val i = Intent(this.requireActivity(), DetailsActivity::class.java)
         startActivity(i)
     }
