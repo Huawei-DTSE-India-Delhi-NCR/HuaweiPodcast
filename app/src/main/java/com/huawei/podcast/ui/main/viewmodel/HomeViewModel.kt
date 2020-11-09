@@ -4,11 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.huawei.podcast.data.model.CategoryCollection
 import com.huawei.podcast.data.model.CategoryModel
-import com.huawei.podcast.data.model.PodCastList
 import com.huawei.podcast.data.repository.CategoryRepository
-import com.huawei.podcast.data.repository.MainRepository
 import com.huawei.podcast.utils.NetworkHelper
 import com.huawei.podcast.utils.Resource
 import com.huawei.podcast.utils.SingleLiveEvent

@@ -2,15 +2,11 @@ package com.huawei.podcast.data.api
 
 import com.huawei.podcast.data.model.CategoryModel
 import com.huawei.podcast.data.model.EpisodeModel
-import com.huawei.podcast.data.model.PodCastList
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
 
 interface ApiService {
-
-    @GET("users")
-    suspend fun getPodCastList(): Response<List<PodCastList>>
 
     /*category*/
     @GET("categories")
