@@ -6,6 +6,7 @@
     <string name="trending">Trending</string>
     <string name="category">Category</string>
     <string name="str_interest">Interest</string>
+    <string name="str_sub_cat">Sub Category</string>
     <string name="str_downloads">Downloads</string>
     <string name="str_subs">Subscriptions</string>
     <string name="str_play_back">Playback History</string>

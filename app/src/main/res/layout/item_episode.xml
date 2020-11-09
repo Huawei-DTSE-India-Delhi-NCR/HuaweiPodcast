@@ -5,16 +5,16 @@
     <data>
 
         <variable
-            name="pList"
-            type="com.huawei.podcast.data.model.PodCastList" />
+            name="eList"
+            type="com.huawei.podcast.data.model.EpisodeList" />
         <variable
             name="clickInterface"
-            type="com.huawei.podcast.utils.ClickListener" />
+            type="com.huawei.podcast.utils.EpisodeClickListener" />
 
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:onClick="@{() -> clickInterface.onItemClick(pList)}"
+    android:onClick="@{() -> clickInterface.onItemClick(eList)}"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -24,29 +24,35 @@
         android:id="@+id/txt_date_size"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="@dimen/twenty"
-        android:text="@{pList.name}"
+        android:text="@{eList.publishedAt}"
         android:layout_marginStart="@dimen/twenty"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="@dimen/twenty"
+        app:layout_constraintEnd_toStartOf="@+id/img_download"
         style="@style/normal_black_text"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/txt_title"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="@dimen/ten"
-        android:text="@{pList.email}"
+        android:text="@{eList.title}"
         android:layout_marginStart="@dimen/twenty"
+        android:layout_marginEnd="@dimen/twenty"
         app:layout_constraintTop_toBottomOf="@+id/txt_date_size"
+        app:layout_constraintEnd_toStartOf="@+id/img_download"
         style="@style/bold_text"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/txt_duration"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="@dimen/ten"
-        android:text="@{pList.avatar}"
+        android:text="@{eList.duration}"
         android:layout_marginStart="@dimen/twenty"
+        android:layout_marginEnd="@dimen/twenty"
         app:layout_constraintTop_toBottomOf="@+id/txt_title"
+        app:layout_constraintEnd_toStartOf="@+id/img_download"
         style="@style/normal_black_text"/>
     <ImageView
         android:id="@+id/img_download"

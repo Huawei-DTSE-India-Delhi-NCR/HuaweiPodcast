@@ -39,7 +39,7 @@
         android:id="@+id/txt_title"
         app:layout_constraintStart_toEndOf="@+id/img_pod_cast"
         android:layout_marginTop="@dimen/thirty"
-        android:text="22 OCT 15 MB"
+        android:text="@{viewModel.setSlug}"
         android:layout_marginStart="@dimen/twenty"
         app:layout_constraintTop_toBottomOf="@+id/include"
         style="@style/normal_black_text"/>
@@ -49,7 +49,7 @@
         android:id="@+id/txt_episode"
         app:layout_constraintStart_toEndOf="@+id/img_pod_cast"
         android:layout_marginTop="@dimen/ten"
-        android:text="find full text"
+        android:text="@{viewModel.setTitle}"
         android:layout_marginStart="@dimen/twenty"
         app:layout_constraintTop_toBottomOf="@+id/txt_title"
         style="@style/bold_text"/>
@@ -59,7 +59,7 @@
         android:id="@+id/txt_duration_date"
         app:layout_constraintStart_toEndOf="@+id/img_pod_cast"
         android:layout_marginTop="@dimen/ten"
-        android:text="00:24"
+        android:text="@{viewModel.setPublishedAt}"
         android:layout_marginStart="@dimen/twenty"
         app:layout_constraintTop_toBottomOf="@+id/txt_episode"
         style="@style/normal_black_text"/>
@@ -113,7 +113,7 @@
         android:id="@+id/txt_details"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="@dimen/twenty"
-        android:text="Prime Minister Narendra Modi on Friday addressed the High-Level Segment of the UN Economic and Social Council session of the United Nations, "
+        android:text="@{viewModel.setDescription}"
         android:layout_marginStart="@dimen/twenty"
         android:layout_marginEnd="@dimen/twenty"
         app:layout_constraintEnd_toEndOf="parent"

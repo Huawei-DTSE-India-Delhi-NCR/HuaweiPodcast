@@ -10,8 +10,8 @@ import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
 import com.huawei.podcast.BuildConfig
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 val appModule = module {
@@ -37,12 +37,9 @@ private fun provideOkHttpClient() = if (BuildConfig.DEBUG) {
     .Builder()
     .build()
 
-private fun provideRetrofit(
-    okHttpClient: OkHttpClient,
-    BASE_URL: String
-): Retrofit =
+private fun provideRetrofit(okHttpClient: OkHttpClient, BASE_URL: String): Retrofit =
     Retrofit.Builder()
-        .addConverterFactory(MoshiConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory.create())
         .baseUrl(BASE_URL)
         .client(okHttpClient)
         .build()

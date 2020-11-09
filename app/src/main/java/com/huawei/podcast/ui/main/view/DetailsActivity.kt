@@ -9,17 +9,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.huawei.podcast.R
-import com.huawei.podcast.data.model.PodCastList
+import com.huawei.podcast.data.model.EpisodeList
+import com.huawei.podcast.data.model.EpisodeModel
 import com.huawei.podcast.databinding.ActivityDetailsBinding
 import com.huawei.podcast.ui.main.adapter.EpisodeAdapter
 import com.huawei.podcast.ui.main.viewmodel.DetailsViewModel
-import com.huawei.podcast.utils.ClickListener
+import com.huawei.podcast.utils.EpisodeClickListener
 import com.huawei.podcast.utils.ProgressDialog
 import com.huawei.podcast.utils.Status
 import kotlinx.android.synthetic.main.activity_details.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class DetailsActivity : AppCompatActivity(), ClickListener {
+class DetailsActivity : AppCompatActivity(), EpisodeClickListener {
     private val detailsViewModel: DetailsViewModel by viewModel()
     private lateinit var adapter: EpisodeAdapter
     lateinit var dialog: Dialog
@@ -52,7 +53,7 @@ class DetailsActivity : AppCompatActivity(), ClickListener {
             when (it.status) {
                 Status.SUCCESS -> {
                     dialog.dismiss()
-                    it.data?.let { users -> renderList(users) }
+                    it.data?.let { eList -> renderList(eList) }
                 }
                 Status.LOADING -> {
                     dialog.show()
@@ -66,13 +67,18 @@ class DetailsActivity : AppCompatActivity(), ClickListener {
         })
     }
 
-    private fun renderList(pList: List<PodCastList>) {
-        adapter.setList(pList)
+    private fun renderList(eList: EpisodeModel) {
+        eList.collection?.let { adapter.setList(it) }
         adapter.notifyDataSetChanged()
     }
 
-    override fun onItemClick(country: PodCastList) {
+    override fun onItemClick(episode: EpisodeList) {
         val i = Intent(this, EpisodeDetailsActivity::class.java)
-        startActivity(i)
+         i.putExtra("episode_List", episode)
+         startActivity(i)
     }
+
+
 }
+
+
