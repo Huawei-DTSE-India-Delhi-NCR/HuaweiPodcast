@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/tools">
-
-    <data>
-
-        <import type="android.view.View" />
-
-        <variable
-            name="viewModel"
-            type="com.huawei.podcast.ui.main.viewmodel.EpisodeDetailsViewModel" />
-
-    </data>
 <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include
@@ -22,7 +11,7 @@
         android:layout_height="wrap_content"
         layout="@layout/include_episode_details"
         app:layout_constraintTop_toTopOf="parent"
-        bind:viewModel="@{viewModel}"/>
+       />
     <ImageView
         android:layout_width="@dimen/hundred"
         android:layout_height="@dimen/hundred"
@@ -33,13 +22,21 @@
         android:src="@drawable/dummy"
         android:scaleType="fitXY"
         android:layout_marginStart="@dimen/twenty"/>
+    <FrameLayout
+        android:layout_width="@dimen/hundred"
+        android:layout_height="@dimen/hundred"
+        app:layout_constraintTop_toBottomOf="@+id/include"
+        android:layout_marginStart="@dimen/twenty"
+        android:layout_marginTop="@dimen/twenty"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/transparent"
+        />
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:id="@+id/txt_title"
         app:layout_constraintStart_toEndOf="@+id/img_pod_cast"
         android:layout_marginTop="@dimen/thirty"
-        android:text="@{viewModel.setSlug}"
         android:layout_marginStart="@dimen/twenty"
         app:layout_constraintTop_toBottomOf="@+id/include"
         style="@style/normal_black_text"/>
@@ -49,7 +46,6 @@
         android:id="@+id/txt_episode"
         app:layout_constraintStart_toEndOf="@+id/img_pod_cast"
         android:layout_marginTop="@dimen/ten"
-        android:text="@{viewModel.setTitle}"
         android:layout_marginStart="@dimen/twenty"
         app:layout_constraintTop_toBottomOf="@+id/txt_title"
         style="@style/bold_text"/>
@@ -59,7 +55,6 @@
         android:id="@+id/txt_duration_date"
         app:layout_constraintStart_toEndOf="@+id/img_pod_cast"
         android:layout_marginTop="@dimen/ten"
-        android:text="@{viewModel.setPublishedAt}"
         android:layout_marginStart="@dimen/twenty"
         app:layout_constraintTop_toBottomOf="@+id/txt_episode"
         style="@style/normal_black_text"/>
@@ -68,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/twenty"
-        app:layout_constraintTop_toBottomOf="@+id/img_pod_cast"
+        app:layout_constraintTop_toBottomOf="@+id/txt_duration_date"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
     <TextView
@@ -80,7 +75,6 @@
         app:layout_constraintStart_toStartOf="parent"
         android:drawableStart="@drawable/ic_stream"
         android:drawablePadding="@dimen/ten"
-        android:onClick="@{viewModel::onClick}"
         style="@style/normal_black_text"/>
     <TextView
         android:layout_width="wrap_content"
@@ -113,7 +107,6 @@
         android:id="@+id/txt_details"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="@dimen/twenty"
-        android:text="@{viewModel.setDescription}"
         android:layout_marginStart="@dimen/twenty"
         android:layout_marginEnd="@dimen/twenty"
         app:layout_constraintEnd_toEndOf="parent"
@@ -121,4 +114,3 @@
         style="@style/normal_black_text"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>

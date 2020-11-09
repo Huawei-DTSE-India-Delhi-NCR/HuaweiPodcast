@@ -16,6 +16,7 @@ import com.huawei.podcast.ui.main.adapter.ChooseInterestAdapter
 import com.huawei.podcast.ui.main.viewmodel.ChooseInterestViewModel
 import com.huawei.podcast.utils.ChooseInterestClickListener
 import com.huawei.podcast.utils.ProgressDialog
+import com.huawei.podcast.utils.SharedPreference
 import com.huawei.podcast.utils.Status
 import kotlinx.android.synthetic.main.activity_choose_your_interest.*
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -26,6 +27,7 @@ class ChooseInterest : AppCompatActivity(), ChooseInterestClickListener {
     private val chooseViewModel: ChooseInterestViewModel by viewModel()
     private lateinit var adapter: ChooseInterestAdapter
     lateinit var dialog: Dialog
+
     lateinit  var activityChooseYourInterestBinding: ActivityChooseYourInterestBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -74,6 +76,7 @@ class ChooseInterest : AppCompatActivity(), ChooseInterestClickListener {
     }
 
     override fun onItemClick(category: CategoryCollection) {
+        category.label?.let { SharedPreference.save("category", it) }
         val i = Intent(this, MainActivity::class.java)
         startActivity(i)
     }

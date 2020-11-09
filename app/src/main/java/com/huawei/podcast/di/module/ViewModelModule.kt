@@ -17,7 +17,5 @@ val viewModelModule = module {
     viewModel {
         DetailsViewModel(get(),get())
     }
-    viewModel {
-        EpisodeDetailsViewModel()
-    }
+
 }

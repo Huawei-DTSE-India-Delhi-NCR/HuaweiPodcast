@@ -19,6 +19,7 @@ import com.huawei.podcast.utils.ProgressDialog
 import com.huawei.podcast.utils.Status
 import kotlinx.android.synthetic.main.activity_details.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import java.util.ArrayList
 
 class DetailsActivity : AppCompatActivity(), EpisodeClickListener {
     private val detailsViewModel: DetailsViewModel by viewModel()
@@ -74,8 +75,8 @@ class DetailsActivity : AppCompatActivity(), EpisodeClickListener {
 
     override fun onItemClick(episode: EpisodeList) {
         val i = Intent(this, EpisodeDetailsActivity::class.java)
-         i.putExtra("episode_List", episode)
-         startActivity(i)
+        i.putExtra("episode_list", episode)
+        startActivity(i)
     }
 
 

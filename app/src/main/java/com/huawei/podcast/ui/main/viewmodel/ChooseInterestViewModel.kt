@@ -1,5 +1,6 @@
 package com.huawei.podcast.ui.main.viewmodel
 
+import android.app.Activity
 import androidx.lifecycle.*
 import com.huawei.podcast.data.model.CategoryModel
 import com.huawei.podcast.data.repository.CategoryRepository
@@ -39,5 +40,6 @@ class ChooseInterestViewModel(private val catRepository: CategoryRepository, pri
 
         }
     }
+
 
 }

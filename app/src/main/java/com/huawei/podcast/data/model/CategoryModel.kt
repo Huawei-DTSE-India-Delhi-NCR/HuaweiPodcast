@@ -5,7 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class CategoryModel(
     @SerializedName("collection")
-    val collection: List<CategoryCollection>?,
-    @SerializedName("href")
-    val href: String?
+    val collection: List<CategoryCollection>?
 )
