@@ -7,6 +7,6 @@ import com.huawei.podcast.data.model.EpisodeList
 
 
 interface EpisodeClickListener {
-    fun onItemClick(category: EpisodeList)
+    fun onItemClick(category: EpisodeList,position: Int)
 }
 

@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:bind="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include
@@ -85,7 +84,6 @@
         android:layout_marginStart="@dimen/fifty"
         app:layout_constraintStart_toEndOf="@+id/txt_stream"
         android:drawableStart="@drawable/ic_download_black"
-        android:onClick="@{viewModel::onDownloadClick}"
         android:drawablePadding="@dimen/ten"
         style="@style/normal_black_text"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

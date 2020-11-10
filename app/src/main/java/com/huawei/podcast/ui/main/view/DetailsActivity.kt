@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.huawei.podcast.R
+import com.huawei.podcast.data.model.CategoryModel
 import com.huawei.podcast.data.model.EpisodeList
 import com.huawei.podcast.data.model.EpisodeModel
 import com.huawei.podcast.databinding.ActivityDetailsBinding
@@ -19,13 +20,14 @@ import com.huawei.podcast.utils.ProgressDialog
 import com.huawei.podcast.utils.Status
 import kotlinx.android.synthetic.main.activity_details.*
 import org.koin.android.viewmodel.ext.android.viewModel
-import java.util.ArrayList
+
 
 class DetailsActivity : AppCompatActivity(), EpisodeClickListener {
     private val detailsViewModel: DetailsViewModel by viewModel()
     private lateinit var adapter: EpisodeAdapter
     lateinit var dialog: Dialog
     lateinit var activityDetailsBinding: ActivityDetailsBinding
+    private lateinit var episodeList: EpisodeModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,13 +71,17 @@ class DetailsActivity : AppCompatActivity(), EpisodeClickListener {
     }
 
     private fun renderList(eList: EpisodeModel) {
-        eList.collection?.let { adapter.setList(it) }
+        episodeList = eList
+        eList.collection?.let {
+            adapter.setList(it)
+        }
         adapter.notifyDataSetChanged()
     }
 
-    override fun onItemClick(episode: EpisodeList) {
+    override fun onItemClick(episode: EpisodeList,position: Int) {
         val i = Intent(this, EpisodeDetailsActivity::class.java)
-        i.putExtra("episode_list", episode)
+        i.putExtra("position",position)
+        i.putExtra("episode_list",episodeList)
         startActivity(i)
     }
 
