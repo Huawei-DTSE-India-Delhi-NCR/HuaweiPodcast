@@ -29,11 +29,11 @@
 
                 <TextView
                     android:id="@+id/txt_trending"
-                    style="@style/bold_text"
+                    style="@style/app_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/twenty"
+                    android:layout_marginStart="@dimen/_15dp"
+                    android:layout_marginTop="@dimen/_20dp"
                     android:text="@string/trending"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -42,7 +42,7 @@
                     android:id="@+id/rv_trending"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/ten"
+                    android:layout_margin="@dimen/_10dp"
                     android:layout_marginTop="276dp"
                     app:layout_constraintTop_toBottomOf="@+id/txt_trending"
                     android:visibility="@{viewModel.showError == null ? View.VISIBLE : View.GONE}"
@@ -50,11 +50,11 @@
 
                 <TextView
                     android:id="@+id/txt_category"
-                    style="@style/bold_text"
+                    style="@style/app_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/twenty"
+                    android:layout_marginStart="@dimen/_15dp"
+                    android:layout_marginTop="@dimen/_20dp"
                     android:text="@string/category"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/rv_trending" />
@@ -63,17 +63,17 @@
                     android:id="@+id/rv_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/ten"
+                    android:layout_margin="@dimen/_10dp"
                     android:visibility="@{viewModel.showError == null ? View.VISIBLE : View.GONE}"
                     app:layout_constraintTop_toBottomOf="@+id/txt_category" />
 
                 <TextView
                     android:id="@+id/txt_sub_category"
-                    style="@style/bold_text"
+                    style="@style/app_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/twenty"
+                    android:layout_marginStart="@dimen/_15dp"
+                    android:layout_marginTop="@dimen/_20dp"
                     android:text="@string/str_sub_cat"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/rv_category" />
@@ -82,18 +82,18 @@
                     android:id="@+id/rv_sub_category"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/ten"
+                    android:layout_margin="@dimen/_10dp"
                     android:visibility="@{viewModel.showError == null ? View.VISIBLE : View.GONE}"
                     app:layout_constraintTop_toBottomOf="@+id/txt_sub_category"
                     tools:layout_editor_absoluteX="16dp" />
 
                 <TextView
                     android:id="@+id/txt_interest"
-                    style="@style/bold_text"
+                    style="@style/app_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/fifteen"
-                    android:layout_marginTop="@dimen/twenty"
+                    android:layout_marginStart="@dimen/_15dp"
+                    android:layout_marginTop="@dimen/_20dp"
                     android:text="@string/str_interest"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/rv_sub_category" />
@@ -102,7 +102,7 @@
                     android:id="@+id/rv_interest"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/ten"
+                    android:layout_margin="@dimen/_10dp"
                     android:visibility="@{viewModel.showError == null ? View.VISIBLE : View.GONE}"
                     app:layout_constraintTop_toBottomOf="@+id/txt_interest"
                     tools:layout_editor_absoluteX="4dp" />

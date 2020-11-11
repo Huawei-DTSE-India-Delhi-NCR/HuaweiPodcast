@@ -9,19 +9,19 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="@dimen/twenty"
-        style="@style/normal_black_text"
+        android:layout_margin="@dimen/_20dp"
+        style="@style/app_text_14"
         android:text="news"/>
     <View
-        android:layout_marginTop="@dimen/twenty"
+        android:layout_marginTop="@dimen/_20dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_gravity="center_horizontal"
         app:layout_constraintTop_toBottomOf="@+id/txt_search"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="@dimen/twenty"
-        android:layout_marginStart="@dimen/twenty"
+        android:layout_marginEnd="@dimen/_20dp"
+        android:layout_marginStart="@dimen/_20dp"
         android:background="@color/colorPrimary"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
