@@ -65,6 +65,7 @@
         android:layout_marginTop="@dimen/thirty"
         android:layout_marginEnd="@dimen/twenty"
         android:src="@drawable/ic_download_black"
+        android:onClick="@{eList::onClick}"
         app:layout_constraintEnd_toEndOf="parent"/>
     <View
         android:layout_marginTop="@dimen/twenty"

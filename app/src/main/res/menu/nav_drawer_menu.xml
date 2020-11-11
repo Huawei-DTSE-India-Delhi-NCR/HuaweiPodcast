@@ -19,9 +19,9 @@
         android:id="@+id/nav_favorites"
         android:icon="@drawable/ic_fav"
         android:title="@string/str_fav" />
-    <item
+  <!--  <item
         android:id="@+id/nav_add_pod_cast"
         android:icon="@drawable/ic_add"
-        android:title="@string/str_add_pod_cast" />
+        android:title="@string/str_add_pod_cast" />-->
 
 </menu>

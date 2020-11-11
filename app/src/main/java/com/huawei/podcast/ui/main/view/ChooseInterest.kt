@@ -98,7 +98,7 @@ class ChooseInterest : AppCompatActivity(), ChooseInterestClickListener {
         ) == PackageManager.PERMISSION_GRANTED
     }
 
-    fun requestPermission() {
+    private fun requestPermission() {
         //Toast.makeText(LoginActivity.this, "Please allow storage permission first", Toast.LENGTH_SHORT).show();
         ActivityCompat.requestPermissions(
             this,
@@ -117,7 +117,7 @@ class ChooseInterest : AppCompatActivity(), ChooseInterestClickListener {
             isAllowed = true
             Toast.makeText(
                 this,
-                "Permission granted! Now sign in please",
+                "Permission granted!",
                 Toast.LENGTH_SHORT
             ).show()
         } else {
