@@ -37,7 +37,7 @@
         android:layout_marginTop="@dimen/ten"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="find full text"
+        android:text="Matt Rubin"
         android:layout_marginStart="@dimen/twenty"
         app:layout_constraintTop_toBottomOf="@+id/txt_title"
         style="@style/bold_text"/>

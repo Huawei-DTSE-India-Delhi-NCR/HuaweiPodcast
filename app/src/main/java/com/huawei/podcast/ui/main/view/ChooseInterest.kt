@@ -1,10 +1,14 @@
 package com.huawei.podcast.ui.main.view
 
+import android.Manifest
 import android.app.Dialog
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.GridLayoutManager
@@ -27,8 +31,8 @@ class ChooseInterest : AppCompatActivity(), ChooseInterestClickListener {
     private val chooseViewModel: ChooseInterestViewModel by viewModel()
     private lateinit var adapter: ChooseInterestAdapter
     lateinit var dialog: Dialog
-
     lateinit  var activityChooseYourInterestBinding: ActivityChooseYourInterestBinding
+    var isAllowed = false // = checkReadPermissionBoolean();
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,6 +52,7 @@ class ChooseInterest : AppCompatActivity(), ChooseInterestClickListener {
         activityChooseYourInterestBinding.inHeader.imgBackArrow.setOnClickListener {
             onBackPressed()
         }
+        isAllowed = checkReadPermissionBoolean()
     }
 
     private fun setupObserver() {
@@ -77,10 +82,51 @@ class ChooseInterest : AppCompatActivity(), ChooseInterestClickListener {
 
     override fun onItemClick(category: CategoryCollection) {
         category.label?.let { SharedPreference.save("category", it) }
-        val i = Intent(this, MainActivity::class.java)
-        startActivity(i)
+        if(isAllowed) {
+            val i = Intent(this, MainActivity::class.java)
+            startActivity(i)
+            finish()
+        }else{
+             requestPermission()
+        }
     }
 
+    private fun checkReadPermissionBoolean(): Boolean {
+        return ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+        ) == PackageManager.PERMISSION_GRANTED
+    }
 
+    fun requestPermission() {
+        //Toast.makeText(LoginActivity.this, "Please allow storage permission first", Toast.LENGTH_SHORT).show();
+        ActivityCompat.requestPermissions(
+            this,
+            arrayOf(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            ),
+            1
+        )
+    }
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String?>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        // Checking whether user granted the permission or not.
+        if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            // Not granted
+            isAllowed = true
+            Toast.makeText(
+                this,
+                "Permission granted! Now sign in please",
+                Toast.LENGTH_SHORT
+            ).show()
+        } else {
+            Toast.makeText(
+                this,
+                "Please allow storage permission first",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+    }
 
 }

@@ -39,6 +39,7 @@ class EpisodeAdapter(val clickListener: EpisodeClickListener) : RecyclerView.Ada
             val row = eList[position]
             viewBinding.eList = row
             viewBinding.clickInterface = clickListener
+            viewBinding.position = position
         }
     }
 

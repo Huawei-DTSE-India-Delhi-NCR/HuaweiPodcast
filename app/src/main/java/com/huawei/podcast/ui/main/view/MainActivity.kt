@@ -1,12 +1,17 @@
 package com.huawei.podcast.ui.main.view
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Log
+import android.os.Handler
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.annotation.NonNull
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import com.huawei.podcast.R
@@ -20,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var activityNavigationDrawerBindingImpl: ActivityNavigationDrawerBindingImpl
     private val mainViewModel: MainActivityViewModel by viewModel()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -99,6 +105,10 @@ class MainActivity : AppCompatActivity() {
             drawer_layout.closeDrawer(GravityCompat.START)
         }
     }
+
+
+
+
 
 
 }

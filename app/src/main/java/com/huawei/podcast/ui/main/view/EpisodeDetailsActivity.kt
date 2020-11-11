@@ -8,14 +8,15 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.huawei.podcast.R
-import com.huawei.podcast.data.model.EpisodeList
+import com.huawei.podcast.data.model.EpisodeModel
 import kotlinx.android.synthetic.main.activity_episode_details.*
 import kotlinx.android.synthetic.main.include_play_audio.*
 
 
 class EpisodeDetailsActivity : AppCompatActivity(), View.OnClickListener {
 
-    private lateinit var eList: EpisodeList
+    private lateinit var eList: EpisodeModel
+    private var position: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,18 +26,19 @@ class EpisodeDetailsActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun setupUI() {
         eList = intent.extras?.getParcelable("episode_list")!!
-        txt_title.text = eList.title
-        if (eList.description.isNullOrBlank()) {
+        position = intent.extras!!.getInt("position")
+        txt_title.text = eList.collection?.get(position)?.title
+        if (eList.collection?.get(position)?.description.isNullOrBlank()) {
            txt_details.text = getString(R.string.details)
         } else {
-            txt_details.text = eList.description
+            txt_details.text = eList.collection?.get(position)?.description
         }
-        if (eList.duration.isNullOrBlank() && eList.publishedAt.isNullOrBlank()) {
+        if (eList.collection?.get(position)?.duration.isNullOrBlank() && eList.collection?.get(position)?.publishedAt.isNullOrBlank()) {
            txt_duration_date.text = "00:21:00 11 NOV"
         } else {
-            txt_duration_date.text = "${eList.duration} - ${eList.publishedAt}"
+            txt_duration_date.text = "${eList.collection?.get(position)?.duration} - ${eList.collection?.get(position)?.publishedAt}"
         }
-        txt_episode.text = eList.slug
+        txt_episode.text = eList.collection?.get(position)?.slug
 
         img_back_arrow.setOnClickListener(this)
         txt_stream.setOnClickListener(this)
@@ -49,6 +51,7 @@ class EpisodeDetailsActivity : AppCompatActivity(), View.OnClickListener {
             R.id.txt_stream -> {
                 val i = Intent(this, PlayAudioActivity::class.java)
                 i.putExtra("episode_list", eList)
+                i.putExtra("position",position)
                 startActivity(i)
             }
             R.id.img_sub_menu -> showConfirmDialog()

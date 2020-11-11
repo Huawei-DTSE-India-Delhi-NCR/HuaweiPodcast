@@ -10,11 +10,14 @@
         <variable
             name="clickInterface"
             type="com.huawei.podcast.utils.EpisodeClickListener" />
+        <variable
+            name="position"
+            type="int" />
 
     </data>
 
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:onClick="@{() -> clickInterface.onItemClick(eList)}"
+    android:onClick="@{() -> clickInterface.onItemClick(eList,position)}"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
