@@ -10,12 +10,13 @@
         android:id="@+id/txt_next"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="@dimen/twenty"
+        android:layout_margin="@dimen/_20dp"
         android:text="@string/next_episode"
-        style="@style/bold_white_text"/>
+        android:textColor="@color/colorWhite"
+        style="@style/app_text"/>
     <View
         android:id="@+id/v1"
-        android:layout_marginTop="@dimen/twenty"
+        android:layout_marginTop="@dimen/_20dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_gravity="center_horizontal"
@@ -29,12 +30,13 @@
         android:id="@+id/txt_fav"
         app:layout_constraintTop_toBottomOf="@+id/v1"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="@dimen/twenty"
+        android:layout_margin="@dimen/_20dp"
+        android:textColor="@color/colorWhite"
         android:text="@string/add_fav"
-        style="@style/bold_white_text"/>
+        style="@style/app_text"/>
     <View
         android:id="@+id/v2"
-        android:layout_marginTop="@dimen/twenty"
+        android:layout_marginTop="@dimen/_20dp"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_gravity="center_horizontal"
@@ -48,9 +50,10 @@
         android:id="@+id/txt_share"
         app:layout_constraintTop_toBottomOf="@+id/v2"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="@dimen/twenty"
+        android:layout_margin="@dimen/_20dp"
         android:text="@string/share"
-        style="@style/bold_white_text"
+        android:textColor="@color/colorWhite"
+        style="@style/app_text"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

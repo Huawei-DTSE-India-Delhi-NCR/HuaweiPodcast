@@ -19,11 +19,11 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="150dp"
-        android:layout_height="@dimen/hundred"
-        android:layout_marginStart="@dimen/five"
-        android:layout_marginEnd="@dimen/five"
-        android:layout_marginTop="@dimen/five"
-        android:layout_marginBottom="@dimen/five"
+        android:layout_height="@dimen/_100dp"
+        android:layout_marginStart="@dimen/_5dp"
+        android:layout_marginEnd="@dimen/_5dp"
+        android:layout_marginTop="@dimen/_5dp"
+        android:layout_marginBottom="@dimen/_5dp"
         card_view:cardElevation="3dp"
         android:onClick="@{() -> clickInterface.onTrendingItemClick(pList)}"
         app:cardBackgroundColor="@color/colorPrimary"
@@ -36,7 +36,8 @@
 
             <TextView
                 android:id="@+id/podCast_name"
-                style="@style/normal_text"
+                style="@style/app_text"
+                android:textColor="@color/colorWhite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -44,8 +45,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:text="@{pList.label}"/>
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

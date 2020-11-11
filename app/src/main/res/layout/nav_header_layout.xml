@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/two_hundred"
+    android:layout_height="@dimen/_200dp"
     android:orientation="vertical"
     android:background="@color/colorPrimary"
     >
@@ -20,9 +20,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/five"
+        android:layout_marginTop="@dimen/_5dp"
         android:text="My Name"
-        style="@style/bold_white_text"
+        style="@style/app_text"
+        android:textColor="@color/colorWhite"
        />
 
     <TextView
@@ -30,9 +31,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/five"
+        android:layout_marginTop="@dimen/_5dp"
         android:text="Email Address"
-        style="@style/bold_white_text"
+        style="@style/app_text"
+        android:textColor="@color/colorWhite"
         />
 
 
