@@ -17,7 +17,7 @@ object ProgressDialog {
                 ColorDrawable(0))
         dialog.setContentView(R.layout.dialog_progress)
         val progressBar = dialog.findViewById<ProgressBar>(R.id.progressBar)
-        progressBar.indeterminateDrawable.setColorFilter(activity.resources.getColor(R.color.colorPrimary), PorterDuff.Mode.MULTIPLY)
+        progressBar.indeterminateDrawable.setColorFilter(activity.resources.getColor(R.color.colorPrimary), PorterDuff.Mode.SRC_ATOP)
         dialog.setCancelable(false)
         dialog.show()
         return dialog

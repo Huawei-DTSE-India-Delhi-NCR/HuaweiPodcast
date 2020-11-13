@@ -64,7 +64,7 @@ class EpisodeDetailsActivity : AppCompatActivity(), View.OnClickListener {
                 val request = DownloadManager.Request(fileUri)
                 request.setTitle(eList.collection?.get(position)?.title)
                 request.setDescription("Android Audio download using DownloadManager.")
-                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS.toString() + "/PodCast", "$title.mp3")
+                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_PODCASTS, "$title.mp3")
                 downloadManager.enqueue(request)
                 Toast.makeText(this, " A new file is downloaded successfully",
                         Toast.LENGTH_LONG).show();

@@ -29,7 +29,7 @@ class DownloadActivity : AppCompatActivity() {
             onBackPressed()
         }
         // gets the files in the directory
-        val folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS + "/PodCast")
+        val folder = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PODCASTS)
         if (folder.listFiles() != null) {
             for (i in folder.listFiles().indices) {
                 Log.i("filename", folder.listFiles()[i].toString())
