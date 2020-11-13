@@ -56,14 +56,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     val i = Intent(this, DownloadActivity::class.java);
                     startActivity(i)
                 }
-                R.id.nav_subscription -> toast("Copy clicked")
-                R.id.nav_playback_history -> toast("Paste clicked")
+                R.id.nav_subscription -> toast("clicked")
+                R.id.nav_playback_history -> toast("clicked")
                 R.id.nav_favorites -> {
-                    // Multiline action
-                    toast("New clicked")
-
+                    toast("clicked")
                 }
-
             }
             // Close the drawer
             drawer_layout.closeDrawer(GravityCompat.START)
